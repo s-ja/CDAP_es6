@@ -9,41 +9,26 @@
     <button id="btn">btn</button>
 
     <script>
-      function maschine(name, age) {
-        this.name = name;
-        this.age = age;
-      }
+      const fnc = (a) => a + 10;
+      console.log(fnc(5));
 
-      const obj = new maschine("asj", 30);
+      [1, 2, 3, 4].forEach((a) => console.log(a * 2));
 
-      //   console.log(obj);
+      document
+        .getElementById("btn")
+        .addEventListener("click", (e) => console.log(e.currentTarget));
 
-      document.getElementById("btn").addEventListener("click", function (e) {
-        // console.log(this);
-        // console.log(e.currentTarget.id);
-        const arr = [1, 2, 3];
-        arr.forEach(function (data) {
-          console.log(data);
-          console.log(this); // window
-        });
-      });
-
-      const obj2 = {
-        names: ["a", "b", "c"],
-        fnc: function () {
-          //   console.log(this);
-
-          obj2.names.forEach(function () {
-            console.log(this);
-          });
-
-          obj2.names.forEach(() => {
-            console.log(this);
-          });
+      const obj = {
+        fnc: () => {
+          console.log(this);
+        },
+        fnc2: function () {
+          console.log(this);
         },
       };
 
-      obj2.fnc();
+      obj.fnc();
+      obj.fnc2();
     </script>
   </body>
 </html>
