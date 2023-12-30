@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      console.log(this);
+
+      function fnc() {
+        console.log(this);
+      }
+
+      fnc();
+      window.fnc();
+
+      const obj = {
+        name: "asj",
+        data: {
+          name: "sj-a",
+          fnc: () => {
+            console.log(this.name);
+          },
+          fnc2() {
+            console.log(this);
+          },
+        },
+        fnc: function () {
+          console.log(this.name);
+        },
+      };
+
+      obj.fnc();
+      obj.data.fnc();
+      obj.data.fnc2();
+    </script>
+  </body>
+</html>
