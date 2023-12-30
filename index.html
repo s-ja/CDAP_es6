@@ -6,37 +6,44 @@
     <title>Document</title>
   </head>
   <body>
+    <button id="btn">btn</button>
+
     <script>
-      "use strict";
-
-      console.log(this);
-
-      function fnc() {
-        console.log(this);
+      function maschine(name, age) {
+        this.name = name;
+        this.age = age;
       }
 
-      fnc();
-      window.fnc();
+      const obj = new maschine("asj", 30);
 
-      const obj = {
-        name: "asj",
-        data: {
-          name: "sj-a",
-          fnc: () => {
-            console.log(this.name);
-          },
-          fnc2() {
-            console.log(this);
-          },
-        },
+      //   console.log(obj);
+
+      document.getElementById("btn").addEventListener("click", function (e) {
+        // console.log(this);
+        // console.log(e.currentTarget.id);
+        const arr = [1, 2, 3];
+        arr.forEach(function (data) {
+          console.log(data);
+          console.log(this); // window
+        });
+      });
+
+      const obj2 = {
+        names: ["a", "b", "c"],
         fnc: function () {
-          console.log(this.name);
+          //   console.log(this);
+
+          obj2.names.forEach(function () {
+            console.log(this);
+          });
+
+          obj2.names.forEach(() => {
+            console.log(this);
+          });
         },
       };
 
-      obj.fnc();
-      obj.data.fnc();
-      obj.data.fnc2();
+      obj2.fnc();
     </script>
   </body>
 </html>
