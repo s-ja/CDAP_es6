@@ -6,29 +6,55 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="btn">btn</button>
+    <button id="btn">버튼</button>
 
     <script>
-      const fnc = (a) => a + 10;
-      console.log(fnc(5));
-
-      [1, 2, 3, 4].forEach((a) => console.log(a * 2));
-
-      document
-        .getElementById("btn")
-        .addEventListener("click", (e) => console.log(e.currentTarget));
-
-      const obj = {
-        fnc: () => {
-          console.log(this);
-        },
-        fnc2: function () {
-          console.log(this);
+      const person = {
+        name: "asj",
+        sayHi: function () {
+          console.log("hello i'm " + this.name);
         },
       };
 
-      obj.fnc();
-      obj.fnc2();
+      person.sayHi();
+
+      const obj = {
+        data: [1, 2, 3, 4, 5],
+        sum1() {
+          let sum = 0;
+          this.data.forEach((a) => {
+            sum += a;
+          });
+          return sum;
+        },
+      };
+
+      const sum2 = (obj) => {
+        let sum = 0;
+        obj.data.forEach((a) => {
+          sum += a;
+        });
+        return sum;
+      };
+
+      obj.sum3 = function () {
+        let sum = 0;
+        this.data.forEach(function (a) {
+          sum += a;
+        });
+        console.log(sum);
+      };
+
+      console.log(obj.sum1());
+      console.log(sum2(obj));
+      obj.sum3();
+
+      document.getElementById("btn").addEventListener("click", function () {
+        // console.log(this.innerHTML);
+        setTimeout(() => {
+          console.log(this.innerHTML);
+        }, 1000);
+      });
     </script>
   </body>
 </html>
