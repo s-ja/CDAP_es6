@@ -6,55 +6,44 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="btn">버튼</button>
-
     <script>
-      const person = {
-        name: "asj",
-        sayHi: function () {
-          console.log("hello i'm " + this.name);
-        },
-      };
+      // 변수의 선언과 할당 그리고 범위.
+      "use strict";
 
-      person.sayHi();
+      var name1 = "asj";
+      name1 = "sj-a";
 
-      const obj = {
-        data: [1, 2, 3, 4, 5],
-        sum1() {
-          let sum = 0;
-          this.data.forEach((a) => {
-            sum += a;
-          });
-          return sum;
-        },
-      };
+      var name1 = "seungji";
 
-      const sum2 = (obj) => {
-        let sum = 0;
-        obj.data.forEach((a) => {
-          sum += a;
-        });
-        return sum;
-      };
+      let name2 = "asj";
+      name2 = "sj-a";
 
-      obj.sum3 = function () {
-        let sum = 0;
-        this.data.forEach(function (a) {
-          sum += a;
-        });
-        console.log(sum);
-      };
+      const name3 = "asj";
 
-      console.log(obj.sum1());
-      console.log(sum2(obj));
-      obj.sum3();
+      const person = { name: "asj" };
 
-      document.getElementById("btn").addEventListener("click", function () {
-        // console.log(this.innerHTML);
-        setTimeout(() => {
-          console.log(this.innerHTML);
-        }, 1000);
-      });
+      person.name = "seungji";
+
+      Object.freeze(person);
+      //   person.name = "sj-a";
+
+      console.log(person);
+
+      function fnc() {
+        var asj = "asj";
+        console.log(asj);
+      }
+
+      fnc();
+      //   console.log(asj);
+
+      if (true) {
+        let seungji = "seungji";
+      }
+
+      for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+      }
     </script>
   </body>
 </html>
