@@ -7,42 +7,28 @@
   </head>
   <body>
     <script>
-      // 변수의 선언과 할당 그리고 범위.
-      "use strict";
+      // 호이스팅, 전역변수
+      console.log(age);
 
-      var name1 = "asj";
-      name1 = "sj-a";
+      var age = 30;
+      window.name = "안승지";
 
-      var name1 = "seungji";
-
-      let name2 = "asj";
-      name2 = "sj-a";
-
-      const name3 = "asj";
-
-      const person = { name: "asj" };
-
-      person.name = "seungji";
-
-      Object.freeze(person);
-      //   person.name = "sj-a";
-
-      console.log(person);
+      console.log(age);
 
       function fnc() {
-        var asj = "asj";
-        console.log(asj);
+        console.log(age);
+        var name = "asj";
       }
 
       fnc();
-      //   console.log(asj);
-
+      console.log(name);
       if (true) {
-        let seungji = "seungji";
-      }
-
-      for (let index = 0; index < array.length; index++) {
-        const element = array[index];
+        let a = 1;
+        var b = 2;
+        if (true) {
+          let b = 3;
+        }
+        console.log(b);
       }
     </script>
   </body>
