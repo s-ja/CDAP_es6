@@ -5,61 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <div style="display: none">모달창0</div>
-    <div style="display: none">모달창1</div>
-    <div style="display: none">모달창2</div>
-
-    <button>버튼0</button>
-    <button>버튼1</button>
-    <button>버튼2</button>
+  <body
+    style="
+      background-color: darkgray;
+      color: darkred;
+      font-family: Arial, Helvetica, sans-serif;
+    "
+  >
+    hello world
     <script>
-      // 문제1
-      //   함수1(); // 호이스팅 O
-      //   function 함수1() {
-      //     console.log(안녕); // error
-      //     let 안녕 = "Hello!"; // let과 const는 undefined로 자동 할당이 안됨
-      //   }
+      // template literal
+      const var1 = `안승지`;
+      const var2 = `좋은 밤입니다.`;
 
-      // 문제2
-      //   함수2(); // not a function
-      //   var 함수2 = function () {
-      //     console.log(안녕);
-      //     var 안녕 = "Hello!";
-      //   };
+      const hello = `반갑습니다 ${var1}님 안녕하세요`;
 
-      // 문제3
-      //   let a = 1;
-      //   var 함수 = function () {
-      //     a = 2;
-      //   };
-      //   //   함수();
-      //   console.log(a);
+      //   console.log(hello);
 
-      // 문제4
-      //   let a = 1;
-      //   var b = 2;
-      //   window.a = 3;
-      //   window.b = 4;
-      //   console.log(a, b);
-      //   console.log(a + b);
-
-      // 문제5
-      //   for (let i = 1; i < 6; i++) {
-      //     setTimeout(function () {
-      //       console.log(i);
-      //     }, i * 1000);
-      //   }
-
-      // 문제6
-      var 버튼들 = document.querySelectorAll("button");
-      var 모달창들 = document.querySelectorAll("div");
-
-      for (let i = 0; i < 3; i++) {
-        버튼들[i].addEventListener("click", function () {
-          모달창들[i].style.display = "block";
-        });
+      // tagged literal
+      function fnc1() {
+        return 10;
       }
+
+      //   console.log(fnc1());
+      //   console.log(fnc1`hello`);
+
+      function decomposer(chars, vars1, vars2) {
+        // console.log(chars[0]);
+        // console.log(vars1);
+        // console.log(chars[1]);
+        // console.log(vars2);
+
+        console.log(vars2 + chars[1] + vars1 + chars[0]);
+      }
+
+      decomposer`반갑습니다 ${var1}님 안녕하세요, ${var2}`;
+      //   decomposer(hello);
     </script>
   </body>
 </html>
