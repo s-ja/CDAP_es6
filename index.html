@@ -54,6 +54,40 @@
 
       console.log(obj2);
       console.log(obj3);
+
+      function plus(...params) {
+        let result = 0;
+        params.map((a) => {
+          result = result + a;
+        });
+
+        console.log(result);
+      }
+
+      //   plus(1, 2, 3, 4, 5, 6, 7);
+      const arr3 = [1, 2, 3, 4, 5, 6];
+      plus(...arr3);
+
+      plus.apply(undefined, arr3);
+      plus.call(undefined, ...arr3);
+
+      const person = {
+        name: "asj",
+        hello(a) {
+          for (let i = 0; i < a; i++) {
+            console.log("hello " + this.name);
+          }
+        },
+      };
+
+      const person1 = {
+        name: "s-ja",
+      };
+
+      person.hello(3);
+
+      person.hello.apply(person1, [1, 2]);
+      person.hello.call(person1, 2, 3, 4);
     </script>
   </body>
 </html>
